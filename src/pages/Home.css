@@ -1,0 +1,124 @@
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: calc(var(--spacing-unit) * 4);
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.loading-spinner {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.resources-container {
+  margin-bottom: calc(var(--spacing-unit) * 4);
+}
+
+.resources-container.grid-mode {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: calc(var(--spacing-unit) * 3);
+}
+
+.resources-container.table-mode {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+.no-results {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 3);
+}
+
+.no-results h2 {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.no-results p {
+  color: var(--color-text-secondary);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 2);
+  padding: calc(var(--spacing-unit) * 4) 0;
+}
+
+.pagination button {
+  min-width: 100px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: calc(var(--spacing-unit) * 1);
+}
+
+.page-numbers button {
+  min-width: 48px;
+  padding: calc(var(--spacing-unit) * 1.5);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.page-numbers button.active {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.page-numbers button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+@media (max-width: 1200px) {
+  .resources-container.grid-mode {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .resources-container.grid-mode {
+    grid-template-columns: 1fr;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+
+  .pagination button {
+    min-width: 80px;
+    font-size: 0.9rem;
+  }
+}
